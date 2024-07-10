@@ -40,6 +40,7 @@ function App() {
     const newPost = { id, title: postTitle, datetime, body: postBody };
 
     dispatch(addPost(newPost));
+    localStorage.setItem("new_post", newPost);
 
     // setPosts(allPosts);
     setPostTitle("");
