@@ -10,7 +10,7 @@ import { Routes, useNavigate, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 
-import { addPost, deletePost } from "./store/CounteSlice";
+import { addPost, deletePost, updatePost } from "./store/CounteSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
     const newPost = { id, title: postTitle, datetime, body: postBody };
 
     dispatch(addPost(newPost));
+    dispatch(updatePost([...posts, newPost]));
     const stringifiedPosts = JSON.stringify(newPost);
     localStorage.setItem("new_post", stringifiedPosts);
 
